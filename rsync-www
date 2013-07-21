@@ -1,0 +1,7 @@
+#!/bin/sh -x
+
+DIR="oscon2013"
+
+ssh -tt florian@93.189.29.147 "ssh deer mkdir -vp /tmp/$DIR"
+rsync -v -P -L -e 'ssh florian@93.189.29.147 ssh' *.svg *.html *.css *.png *.jpg *.js fonts deer:/tmp/$DIR/
+ssh -tt florian@93.189.29.147 "ssh deer sudo cp -vr /tmp/$DIR /usr/share/drupal6/misc/static/presentations/"
