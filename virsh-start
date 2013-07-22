@@ -1,0 +1,10 @@
+#!/bin/sh
+
+sudo start libvirt-bin
+
+sudo virsh <<EOF
+start oscon-puppet
+start oscon-alice
+start oscon-bob
+start oscon-charlie
+EOF
